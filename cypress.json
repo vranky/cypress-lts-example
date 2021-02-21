@@ -1,0 +1,23 @@
+{
+  "video": true,
+  "videoCompression": false,
+  "videoUploadOnPasses": false,
+  "reporter": "mochawesome",
+  "supportFile": "cypress/support/index.ts",
+  "reporterOptions": {
+    "reportDir": "reports",
+    "overwrite": true,
+    "html": true,
+    "json": true,
+    "timestamp": "mmddyyyy_HHMMss"
+  },
+  "defaultCommandTimeout": 30000,
+  "pageLoadTimeout": 120000,
+  "env": {
+    "allureResultsPath": "allure-results"
+  },
+  "viewportWidth": 1600,
+  "viewportHeight": 1200,
+  "chromeWebSecurity": false,
+  "ignoreTestFiles": ["*.js", "*.md"]
+}

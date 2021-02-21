@@ -1,0 +1,12 @@
+node_modules
+package-lock.json
+reports
+allure-results
+allure-report
+cypress/screenshots
+cypress/videos
+debug.log
+.idea
+*.xml
+.aws-credentials.js
+.env

@@ -1,0 +1,57 @@
+image: node:12
+options:
+  max-time: 30
+pipelines:
+  custom:
+    test-env:
+      - parallel:
+          - step:
+              name: test smoke 1
+              caches:
+                - npm
+                - cypress
+              image: cypress/browsers:node12.6.0-chrome75
+              script:
+                - npm ci
+                - npm run cypress:run:test
+              artifacts:
+                - mochawesome-report/**
+          - step:
+              name: test smoke 2
+              caches:
+                - npm
+                - cypress
+              image: cypress/browsers:node12.6.0-chrome75
+              script:
+                - npm ci
+                - npm run cypress:run:test
+              artifacts:
+                - mochawesome-report/**
+    dev-env:
+      - parallel:
+          - step:
+              name: dev smoke 1
+              caches:
+                - npm
+                - cypress
+              image: cypress/browsers:node12.6.0-chrome75
+              script:
+                - npm ci
+                - npm run cypress:run:dev
+              artifacts:
+                - mochawesome-report/**
+          - step:
+              name: dev smoke 2
+              caches:
+                - npm
+                - cypress
+              image: cypress/browsers:node12.6.0-chrome75
+              script:
+                - npm ci
+                - npm run cypress:run:dev
+              artifacts:
+                - mochawesome-report/**
+definitions:
+  caches:
+    npm: $HOME/.npm
+    cypress: $HOME/.cache/Cypress
